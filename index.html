@@ -1995,6 +1995,26 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+
+    nav {
+        left: auto;
+        right: 15px;
+        transform: none;
+    }
+
+    .burger {
+        margin-left: auto;
+    }
+
+
+    nav {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        padding: 10px;
+    }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -2100,7 +2120,167 @@
                 font-size: 0.8rem;
             }
         }
-    </style>
+    
+        /* Burger Menu */
+        .burger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background: #00d4ff;
+            transition: all 0.3s ease;
+        }
+        @media (max-width: 768px) {
+
+    nav {
+        left: auto;
+        right: 15px;
+        transform: none;
+    }
+
+    .burger {
+        margin-left: auto;
+    }
+
+
+    nav {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        padding: 10px;
+    }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                background: rgba(10, 10, 10, 0.95);
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                padding: 15px;
+                border-radius: 10px;
+                width: 200px;
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .burger {
+                display: flex;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+
+    nav {
+        left: auto;
+        right: 15px;
+        transform: none;
+    }
+
+    .burger {
+        margin-left: auto;
+    }
+
+
+    nav {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        padding: 10px;
+    }
+
+            .projects-timeline::before {
+                left: 30px;
+            }
+            .project-timeline-item:nth-child(odd) .project-timeline-card,
+            .project-timeline-item:nth-child(even) .project-timeline-card {
+                margin-left: 60px;
+                margin-right: 0;
+                text-align: left;
+            }
+            .project-timeline-item::before {
+                left: 30px;
+            }
+        }
+
+
+/* Burger Menu Styles Update */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+}
+.burger div {
+    width: 25px;
+    height: 3px;
+    background: #00d4ff;
+    transition: all 0.3s ease;
+}
+.burger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active div:nth-child(2) {
+    opacity: 0;
+}
+.burger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+@media (max-width: 768px) {
+
+    nav {
+        left: auto;
+        right: 15px;
+        transform: none;
+    }
+
+    .burger {
+        margin-left: auto;
+    }
+
+
+    nav {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        padding: 10px;
+    }
+
+    .burger {
+        display: flex;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(10, 10, 10, 0.95);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+    }
+    nav ul.active {
+        display: flex;
+    }
+}
+
+</style>
 </head>
 <body>
     <!-- Background Animation -->
@@ -2118,6 +2298,11 @@
 
     <!-- Navigation -->
     <nav>
+        <div class="burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <ul>
             <li><a href="#home" class="nav-link active">Home</a></li>
             <li><a href="#about" class="nav-link">About</a></li>
@@ -2162,7 +2347,7 @@
             <img src="profile.png" alt="Ajay Hari Krishna" />
         </div>
         <div class="about-text">
-            <h2>About me</h2>
+            <h2>Profile</h2>
             <p>Final-year B.Tech CSE student (2026 batch) with hands-on experience in building full-stack web applications, ML/NLP systems, and GenAI-powered prototypes.</p>
             <p>Skilled in MERN + TypeScript frontends, Python ML/NLP pipelines, LLM integrations (Gemini), prompt engineering, and developing reusable components for scalable solutions.</p>
             <p>Actively exploring agentic AI and cloud-native practices, with a strong interest in contributing to roles such as Associate/Advanced Associate Software Engineer or AI-native Engineer, focusing on domain-aware agentic systems.</p>
@@ -2446,30 +2631,17 @@
             </div>
 
             <div class="contact-form-section">
-                <form class="contact-form" onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                        </svg>
-                        Send Message
-                    </button>
-                </form>
+                <form action="https://formspree.io/f/xldpbwez" method="POST" class="contact-form">
+        <div class="form-group">
+            <label>Your email:</label>
+            <input type="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label>Your message:</label>
+            <textarea name="message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send</button>
+    </form>
             </div>
         </div>
     </section>
@@ -3017,5 +3189,26 @@ function downloadResume() {
             window.addEventListener('scroll', handleScroll);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98543d2981ae9f50',t:'MTc1ODkwNTIwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98543d2981ae9f50',t:'MTc1ODkwNTIwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>
+function toggleMenu() {
+    document.querySelector('nav ul').classList.toggle('show');
+}
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const burger = document.querySelector(".burger");
+    const navMenu = document.querySelector("nav ul");
+    if (burger && navMenu) {
+        burger.addEventListener("click", () => {
+            burger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+    }
+});
+</script>
+
+</body>
 </html>
